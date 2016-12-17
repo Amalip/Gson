@@ -2,9 +2,12 @@ package amalip.gson;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import org.w3c.dom.Text;
 
 import amalip.gson.Controllers.CustomerController;
 import amalip.gson.Models.Customer;
@@ -28,6 +31,10 @@ public class MainActivity extends AppCompatActivity implements CustomerControlle
         Customer.CustomerHelper customer = gsonB.fromJson(result, Customer.CustomerHelper.class);
         System.out.println(customer.ListCustomer.elementAt(0).getFirstName());
 
-        //TODO Serializar un objeto usando Gson
+        //Serializar un objeto usando Gson
+        String json = gsonB.toJson(customer.ListCustomer.firstElement());
+        String json1= gsonB.toJson(customer.ListCustomer);
+        TextView _txv = (TextView) findViewById(R.id.txvRes);
+        _txv.setText(json);
     }
 }
