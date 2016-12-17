@@ -1,10 +1,16 @@
 package amalip.gson.Models;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
+import java.util.Vector;
+
 /**
  * Created by Amalip on 12/17/2016.
  */
 
 public class Customer {
+    @SerializedName("CustomerID")
     private int CostumerID;
     private String FirstName;
     private String LastName;
@@ -40,5 +46,10 @@ public class Customer {
     }
     public void setAddress(String address) {
         Address = address;
+    }
+
+    public class CustomerHelper{
+        @SerializedName("GetCustomerListResult")
+        public Vector<Customer> ListCustomer;
     }
 }
